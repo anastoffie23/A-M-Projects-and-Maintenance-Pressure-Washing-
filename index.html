@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A&M Projects and Maintenance</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #003366;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 4px black;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+    }
+  
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003366;
+      }
+
+      .nav-links a {
+        padding: 10px 20px;
+        border-top: 1px solid #ffffff33;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+    </style>
+    
+</head>
+<body>
+  <div id="home"></div>
+
+  <header>
+    <img src="logo.png" alt="A&M Logo">
+    
+    <nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="nav-links" id="navLinks">
+    
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    
+      </div>
+    </nav>
+    
+  </header>
+
+  <div class="hero">
+    <h1>Professional Pressure Washing Services</h1>
+  </div>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Driveway Cleaning</h3>
+        <p>Remove oil stains, grime, and dirt with our powerful pressure washers.</p>
+      </div>
+      <div class="service-card">
+        <h3>Wall & Fence Washing</h3>
+        <p>We clean brick, concrete, wood, and metal fences safely and effectively.</p>
+      </div>
+      <div class="service-card">
+        <h3>Roof & Gutter Cleaning</h3>
+        <p>Prevent damage and leaks by keeping your gutters and roof spotless.</p>
+      </div>
+    </div>
+  
+    </section>
+
+    <section id="why-us">
+      <h2>Why Choose Us?</h2>
+      <p>At A&M Projects and Maintenance, we believe in top-notch service with guaranteed satisfaction. We use eco-friendly detergents and advanced pressure washing equipment for all surfaces. Trusted by dozens of happy customers!</p>
+    </section>
+    
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mvgrbgvb" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <a href="https://wa.me/27695457271" class="whatsapp-button" target="_blank">
+    Chat with us on WhatsApp
+  </a>
+
+  <script>
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+    </script>
+    
+
+</body>
+</html>
